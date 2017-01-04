@@ -771,6 +771,7 @@ EOD;
                     $server = new OAuth\OAuthServer($store);
                     $method = new OAuth\OAuthSignatureMethod_HMAC_SHA1();
                     $server->add_signature_method($method);
+                    $server->add_signature_method(new OAuth\OAuthSignatureMethod_HMAC_SHA256());
                     $request = OAuth\OAuthRequest::from_request();
                     $res = $server->verify_request($request);
                 } catch (\Exception $e) {
